@@ -22,7 +22,10 @@ $company = "Формула программиста";
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <?= Html::csrfMetaTags() ?>
     <title><?= $company.' - '.Html::encode($this->title) ?></title>
+
     <?php $this->head() ?>
+
+
 </head>
 <body>
 <?php $this->beginBody() ?>
@@ -43,9 +46,9 @@ $company = "Формула программиста";
     echo Nav::widget([
         'options' => ['class' => 'navbar-nav navbar-right'],
         'items' => [
-            ['label' => 'Home', 'url' => ['/site/index']],
-            ['label' => 'About', 'url' => ['/site/about']],
-            ['label' => 'Contact', 'url' => ['/site/contact']],
+            ['label' => 'Курсы', 'url' => ['/site/index']],
+            ['label' => 'Вебинары', 'url' => ['/site/about']],
+            ['label' => 'Консоль', 'url' => ['/site/contact']],
             Yii::$app->user->isGuest ? (
                 ['label' => 'Login', 'url' => ['/site/login']]
             ) : (
