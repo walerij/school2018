@@ -47,15 +47,15 @@ $company = "Формула программиста";
         'options' => ['class' => 'navbar-nav navbar-right'],
         'items' => [
             ['label' => 'Курсы', 'url' => ['/site/index']],
-            ['label' => 'Вебинары', 'url' => ['/site/about']],
+            ['label' => 'Вебинары', 'url' => ['/site/vebinars']],
             ['label' => 'Консоль', 'url' => ['/site/contact']],
             Yii::$app->user->isGuest ? (
-                ['label' => 'Login', 'url' => ['/site/login']]
+                ['label' => 'Вход', 'url' => ['/site/login']]
             ) : (
                 '<li>'
                 . Html::beginForm(['/site/logout'], 'post')
                 . Html::submitButton(
-                    'Logout (' . Yii::$app->user->identity->username . ')',
+                    'Выход (' . Yii::$app->user->identity->username . ')',
                     ['class' => 'btn btn-link logout']
                 )
                 . Html::endForm()
@@ -67,10 +67,25 @@ $company = "Формула программиста";
     ?>
 
     <div class="container">
+
         <?= Breadcrumbs::widget([
             'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
         ]) ?>
-        <?= $content ?>
+
+        <div class="col-lg-10 col-md-10">
+          <?= $content ?>
+       </div>
+        <div class="col-lg-2 col-md-2">
+            <h2>Календарь вебинаров</h2>
+            <?php $this->beginContent('@app/views/site/parts/calendar.php'); ?>
+
+            ...child layout content here...
+
+            <?php $this->endContent(); ?>
+        </div>
+    </div>
+    <div class="container">
+
     </div>
 </div>
 

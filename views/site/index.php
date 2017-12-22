@@ -167,6 +167,9 @@ $this->title = 'Home';
                 </a>
             </li>
         </ul>
+        <?
+        $this->render('/site/parts/calendar');
+        ?>
     </div>
 </div>
 

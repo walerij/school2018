@@ -1,7 +1,7 @@
 <style>
     #calendar {
         width: 100%;
-        font: monospace;
+        /*font: monospace;*/
         line-height: 1.2em;
         font-size: 15px;
         text-align: center;
@@ -23,10 +23,15 @@
         color: rgb(231, 140, 92);
     }
     #calendar tbody td.today {
-        background: rgb(220, 0, 0);
+        background: #00b3ee;
+        color: #fff;
+    }
+    #calendar tbody td.vebinar {
+        background: #e51717;
         color: #fff;
     }
 </style>
+
 
 
 <div align=center>
@@ -55,6 +60,7 @@
             for(var  i = 0; i < 6; i++) calendar += '<td>';
         }
         for(var  i = 1; i <= Dlast; i++) {
+
             if (i == new Date().getDate() && D.getFullYear() == new Date().getFullYear() && D.getMonth() == new Date().getMonth()) {
                 calendar += '<td class="today">' + i;
             }else{
