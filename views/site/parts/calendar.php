@@ -30,6 +30,8 @@
         background: #e51717;
         color: #fff;
     }
+    .vebinar-a{display: block; width: 100%; height: 100%; color: white; text-decoration: none}
+    .vebinar-a:hover {color: white;}
 </style>
 
 
@@ -63,7 +65,13 @@
 
             if (i == new Date().getDate() && D.getFullYear() == new Date().getFullYear() && D.getMonth() == new Date().getMonth()) {
                 calendar += '<td class="today">' + i;
-            }else{
+            }
+            else if(i==3)
+            {
+                calendar += '<td class="vebinar"><a href="#" class="vebinar-a" title="Вебинар в 19:00">' + i+'</a>';
+            }
+
+            else{
                 calendar += '<td>' + i;
             }
             if (new Date(D.getFullYear(),D.getMonth(),i).getDay() == 0) {

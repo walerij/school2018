@@ -14,7 +14,7 @@ $this->title = 'Home';
             background: #666;
             color: #FFF;
         }*/
-       .sticker-h2 {margin: 2px}
+       .sticker-h2 {margin: 2px; }
         .sticker-h2, .sticker-p {
             font-size: 100%;
             font-weight: normal;
@@ -22,6 +22,7 @@ $this->title = 'Home';
 
         .sticker-ul, .sticker-li {
             list-style: none;
+            text-align: center
         }
 
         .sticker-ul {
@@ -112,7 +113,11 @@ $this->title = 'Home';
        }
 
     </style>
-    <div class="jumbotron">
+    <div class="panel panel-success">
+        <div class="panel-heading">
+          Самые популярные курсы
+        </div>
+        <div class="panel-body">
         <ul class="sticker-ul">
             <li class="sticker-li">
                 <a href = "#" class="sticker-a">
@@ -167,9 +172,7 @@ $this->title = 'Home';
                 </a>
             </li>
         </ul>
-        <?
-        $this->render('/site/parts/calendar');
-        ?>
+        </div>
     </div>
 </div>
 
