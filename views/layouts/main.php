@@ -11,7 +11,7 @@ use app\assets\AppAsset;
 
 AppAsset::register($this);
 
-$company = "Формула программиста";
+$company = "Шаги к успеху";
 ?>
 <?php $this->beginPage() ?>
 <!DOCTYPE html>

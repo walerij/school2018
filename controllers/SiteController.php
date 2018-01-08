@@ -112,7 +112,7 @@ class SiteController extends Controller
         return $this->render('contact', [
             'model' => $model,
         ]);*/
-        return $this->render('parts\calendar');
+        return $this->render('about');
     }
     public function actionVebinars()
     {
@@ -125,7 +125,7 @@ class SiteController extends Controller
          return $this->render('contact', [
              'model' => $model,
          ]);*/
-        return $this->render('parts\calendar');
+        return $this->render('about');
     }
 
     /**
