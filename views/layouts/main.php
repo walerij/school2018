@@ -48,6 +48,7 @@ $company = "Шаги к успеху";
         'items' => [
             ['label' => 'Курсы', 'url' => ['/site/index']],
             ['label' => 'Вебинары', 'url' => ['/site/vebinars']],
+            ['label' => 'Мои курсы', 'url' => ['/course/index']],
             ['label' => 'Консоль', 'url' => ['/site/contact']],
             Yii::$app->user->isGuest ? (
                 ['label' => 'Вход', 'url' => ['/site/login']]
