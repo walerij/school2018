@@ -45,4 +45,11 @@ class LessonRecord extends \yii\db\ActiveRecord
             'info' => 'Info',
         ];
     }
+
+    public function getSteps()
+    {
+        return $this->hasMany(StepsRecord::className(),['lesson_id'=>'id']);
+    }
+
+
 }
