@@ -34,7 +34,7 @@ class CourseController extends Controller
     //вызов представления для урока
     public  function  actionViewlesson($id)
     {
-        return $this->render('viewlesson', [
+        return $this->render('viewlesson_step', [
             'model' => $this->findLesson($id),
         ]);
     }
