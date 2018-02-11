@@ -53,6 +53,7 @@ $company = "Шаги к успеху";
                 [
                  ['label' => 'Загрузка файла', 'url' => ['/upload/index']],
                  ['label' => 'JS', 'url' => ['/upload/js']],
+                 ['label' => 'JS на форме', 'url' => ['/upload/jsonpost']],
                 ]
             ],
 

@@ -85,4 +85,12 @@ class UploadController extends Controller {
 
     }
 
+    // дальнейшие действия данного контроллера - работа с данными POST через JS
+
+    //переход на страницу тестов Post
+    public function actionJsonpost()
+    {
+        //переход на страницу тестов Post
+        return $this->render('jsonpost');
+    }
 }
