@@ -2,6 +2,7 @@
 
 namespace app\controllers;
 
+use app\models\LessonRecord;
 use Yii;
 use app\models\CourseRecord;
 use app\models\AdminCourseSearch;
@@ -38,12 +39,29 @@ class UploadController extends Controller {
     {
         if (Yii::$app->request->isAjax)
         {
-            $test = 'Hi, Wal';
+            $test = 'Hi, Wal ';
             Yii::$app->response->format = Response::FORMAT_JSON;
             return['test'=>$test];
         }
 
         return ['test'=>""];
+
+    }
+
+    public function actionAns2()
+    {
+        if (Yii::$app->request->isAjax)
+        {
+            $test="";
+            //$test = 'Hi, Wal ';
+            $rec=LessonRecord::findOne(1);
+            $test = $rec->title;
+
+            Yii::$app->response->format = Response::FORMAT_JSON;
+            return['response'=>$test];
+        }
+
+        return ['response'=>""];
 
     }
 

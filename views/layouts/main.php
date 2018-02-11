@@ -48,8 +48,14 @@ $company = "Шаги к успеху";
             ['label' => 'Курсы', 'url' => ['/site/index']],
             ['label' => 'Вебинары', 'url' => ['/site/vebinars']],
             ['label' => 'Мои курсы', 'url' => ['/course/index']],
-             ['label' => 'Загрузка файла', 'url' => ['/upload/index']],
-            ['label' => 'JS', 'url' => ['/upload/js']],
+
+            ['label'=>'Работы', 'items'=>
+                [
+                 ['label' => 'Загрузка файла', 'url' => ['/upload/index']],
+                 ['label' => 'JS', 'url' => ['/upload/js']],
+                ]
+            ],
+
             ['label' => 'Консоль', 'url' => ['/site/contact']],
             Yii::$app->user->isGuest ? (
                 ['label' => 'Вход', 'url' => ['/site/login']]
