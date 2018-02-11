@@ -65,4 +65,24 @@ class UploadController extends Controller {
 
     }
 
+    public function actionJson1()
+    {
+        if (Yii::$app->request->isAjax)
+        {
+            $test="";
+            Yii::$app->response->format = Response::FORMAT_JSON;
+            //$test = 'Hi, Wal ';
+            $rec=LessonRecord::findOne(1);
+           // $test = $rec;
+             // $rec=['some', 'array', 'of', 'data' => ['associative', 'array']];
+
+
+           //   var_dump($rec);
+            return['response'=>$rec];
+        }
+
+        return ['response'=>""];
+
+    }
+
 }
