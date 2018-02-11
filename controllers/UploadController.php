@@ -9,6 +9,7 @@ use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 use yii\web\UploadedFile;
+use yii\web\Response;
 use app\models\UploadForm;
 
 /**
@@ -26,6 +27,24 @@ class UploadController extends Controller {
             }
         }
         return $this->render('index', ['model' => $model]);
+    }
+
+    public function actionJs()
+    {
+        return $this->render('js');
+    }
+
+    public function actionAns()
+    {
+        if (Yii::$app->request->isAjax)
+        {
+            $test = 'Hi, Wal';
+            Yii::$app->response->format = Response::FORMAT_JSON;
+            return['test'=>$test];
+        }
+
+        return ['test'=>""];
+
     }
 
 }

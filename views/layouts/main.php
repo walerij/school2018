@@ -32,8 +32,7 @@ $company = "Шаги к успеху";
 
 <div class="wrap">
     <?php
-
-    NavBar::begin([
+    \yii\web\JqueryAsset::register($this);    NavBar::begin([
            /* 'brandLogo'=>Html::img('/image/fmap.png',
                     ['alt'=>Yii::$app->name,'height'=>'25px',
                         'display'=>'inline','float'=>'left']),*/
@@ -50,6 +49,7 @@ $company = "Шаги к успеху";
             ['label' => 'Вебинары', 'url' => ['/site/vebinars']],
             ['label' => 'Мои курсы', 'url' => ['/course/index']],
              ['label' => 'Загрузка файла', 'url' => ['/upload/index']],
+            ['label' => 'JS', 'url' => ['/upload/js']],
             ['label' => 'Консоль', 'url' => ['/site/contact']],
             Yii::$app->user->isGuest ? (
                 ['label' => 'Вход', 'url' => ['/site/login']]
