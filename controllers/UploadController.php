@@ -93,4 +93,25 @@ class UploadController extends Controller {
         //переход на страницу тестов Post
         return $this->render('jsonpost');
     }
+
+  //получение данных через post
+    public function post2()
+    {
+        if (Yii::$app->request->isAjax)
+        {
+            $test="";
+            Yii::$app->response->format = Response::FORMAT_JSON;
+            //$test = 'Hi, Wal ';
+            $rec=LessonRecord::findOne(1);
+            // $test = $rec;
+            // $rec=['some', 'array', 'of', 'data' => ['associative', 'array']];
+
+
+            //   var_dump($rec);
+            return['response'=>$rec];
+        }
+
+        return ['response'=>""];
+
+    }
 }

@@ -17,10 +17,26 @@ $script = <<< JS
         ;
     });
 
+
+ //просто получение данных поля
    $("#form_button").click(function(){
         $("#test_pre").append($("#form_name").val());
         ;
     });
+   
+   //а теперь горячо любимый ajax через POST
+   //получение данных об уроках 
+    function request_data() {
+       $.ajax({
+            url: '/upload/post2/',
+            type: "GET",
+            dataType: 'json',
+            data: {},
+            success: function (data) {
+                alert(data.response); }
+                });
+    }
+   
 
 JS;
 //маркер конца строки, обязательно сразу, без пробелов и табуляции
