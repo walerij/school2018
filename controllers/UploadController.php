@@ -15,6 +15,24 @@ use app\models\UploadForm;
 
 /**
  * AdmincourseController implements the CRUD actions for CourseRecord model.
+ * 
+ * 
+ * 
+ * Влад
+Спасибо за статью! А переменную Yii::$app->params[‘pathUploads’] — где устанавливать?
+on 16.11.2016 Ответить
+admin
+В файле config/params.php
+Полный код файла:
+        < ?php
+        return [
+        ‘adminEmail’ => ‘admin@example.com’,
+        ‘pathUploads’ => realpath(dirname(__FILE__)).’\..\web\img\user_photo\\’,
+        ];
+        Вместо «realpath(dirname(__FILE__)).’\..\web\img\user_photo\\» указать необходимый путь
+ * 
+ * 
+ * 
  */
 class UploadController extends Controller {
 
@@ -24,11 +42,34 @@ class UploadController extends Controller {
             $model->file = UploadedFile::getInstance($model, 'file');
             if ($model->validate()) {
                 $path = Yii::$app->params['pathUploads'] . 'test/';
-                $model->file->saveAs($path . $model->file);
+                //$model->file->saveAs($path . $model->file);
+                $model->file->saveAs($path .time().'.'. $model->file->getExtension());
+                $model->path= $path .time().'.'. $model->file->getExtension();
             }
         }
         return $this->render('index', ['model' => $model]);
     }
+    
+//выгрузка файла
+    
+    public function actionUploadfile() {
+        
+         if (Yii::$app->request->isAjax)
+         {
+             $model = new UploadForm();
+             $model->file = UploadedFile::getInstance($model, 'file');
+             $model->path= $path .time().'.'. $model->file->getExtension();
+               $rec=model. path2class($path);
+            //$test = 'Hi, Wal ';
+           
+            
+
+            Yii::$app->response->format = Response::FORMAT_JSON;
+            return['response'=>$rec];
+             
+         }
+    }
+
 
     public function actionJs()
     {

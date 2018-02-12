@@ -8,7 +8,7 @@ $form = ActiveForm::begin([
             'options' => ['enctype' => 'multipart/form-data']
         ]);
 ?>
-
+<?= $form->field($model, 'path')->textInput(); ?>
 <?= $form->field($model, 'file')->fileInput(); ?>
 
 <button>Submit</button>

@@ -23,6 +23,7 @@ $script = <<< JS
  //просто получение данных поля
    $("#form_button").click(function(){
         $("#test_pre").append($("#form_name").val());
+       //  request_data();
         ;
     });
    
@@ -35,7 +36,10 @@ $script = <<< JS
             dataType: 'json',
             data: {},
             success: function (data) {
-                alert(data.response); }
+               alert(data.response); 
+                 // $("#test_pre").append(data.response);  
+               
+                  }
                 });
     }
    
@@ -53,14 +57,14 @@ $this->registerJs($script, yii\web\View::POS_READY);
 
 <hr>
 
-<!--<form action="#" name="form1" method="post">
+<form action="#" name="form1" method="post">
     <label>Наименование</label>
     <input type="text" id="form_name" placeholder="Название">
     <br>
 
     <button type="button" id="form_button">Получить название</button>
-</form>-->
-<?php $form = ActiveForm::begin([
+</form>
+<?php /* $form = ActiveForm::begin([
     'beforeSubmit' => new \yii\web\JsExpression('function(form) {
                 jQuery.ajax({
                     url: "/upload/post2/",
@@ -77,7 +81,10 @@ $this->registerJs($script, yii\web\View::POS_READY);
                 return false;
             }')
 ]);
+
+ * 
+ * <?php ActiveForm::end() ?>
+ * <? $form->field($model,'name' )->textInput()?>
+ *  */
 ?>
-<? $form->field($model,'name' )->textInput()?>
-<button type="submit"></button>
-<?php ActiveForm::end() ?>
+
