@@ -1,4 +1,6 @@
-
+<?
+use yii\widgets\ActiveForm;
+?>
 <h3> Тестирование данных POST через js </h3>
 
 <pre id="test_pre">
@@ -51,10 +53,31 @@ $this->registerJs($script, yii\web\View::POS_READY);
 
 <hr>
 
-<form action="#" name="form1" method="post">
+<!--<form action="#" name="form1" method="post">
     <label>Наименование</label>
     <input type="text" id="form_name" placeholder="Название">
     <br>
 
     <button type="button" id="form_button">Получить название</button>
-</form>
+</form>-->
+<?php $form = ActiveForm::begin([
+    'beforeSubmit' => new \yii\web\JsExpression('function(form) {
+                jQuery.ajax({
+                    url: "/upload/post2/",
+                    type: "POST",
+                    dataType: "json",
+                    data: form.serialize(),
+                    success: function(response) {
+                        ...
+                    },
+                    error: function(response) {
+                        ...
+                    }
+                });
+                return false;
+            }')
+]);
+?>
+<? $form->field($model,'name' )->textInput()?>
+<button type="submit"></button>
+<?php ActiveForm::end() ?>
