@@ -64,7 +64,11 @@ $this->registerJs($script, yii\web\View::POS_READY);
 
     <button type="button" id="form_button">Получить название</button>
 </form>
+<<<<<<< Updated upstream
 <?php /* $form = ActiveForm::begin([
+=======
+<?php /*$form = ActiveForm::begin([
+>>>>>>> Stashed changes
     'beforeSubmit' => new \yii\web\JsExpression('function(form) {
                 jQuery.ajax({
                     url: "/upload/post2/",
@@ -80,6 +84,7 @@ $this->registerJs($script, yii\web\View::POS_READY);
                 });
                 return false;
             }')
+<<<<<<< Updated upstream
 ]);
 
  * 
@@ -88,3 +93,7 @@ $this->registerJs($script, yii\web\View::POS_READY);
  *  */
 ?>
 
+=======
+]);*/
+?>
+>>>>>>> Stashed changes
