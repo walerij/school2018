@@ -93,7 +93,3 @@ $this->registerJs($script, yii\web\View::POS_READY);
  *  */
 ?>
 
-=======
-]);*/
-?>
->>>>>>> Stashed changes

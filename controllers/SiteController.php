@@ -2,6 +2,7 @@
 
 namespace app\controllers;
 
+use app\models\StepscontentRecord;
 use Yii;
 use yii\filters\AccessControl;
 use yii\web\Controller;
@@ -9,6 +10,8 @@ use yii\web\Response;
 use yii\filters\VerbFilter;
 use app\models\LoginForm;
 use app\models\ContactForm;
+use app\models\UploadForm;
+use yii\web\UploadedFile;
 
 class SiteController extends Controller
 {
@@ -136,5 +139,24 @@ class SiteController extends Controller
     public function actionAbout()
     {
         return $this->render('about');
+    }
+    public function actionAddphoto()
+    {
+        $model = new UploadForm();
+        $StepcontentRecord = StepscontentRecord::findOne(1);
+        if (Yii::$app->request->post()) {
+            $model->file = UploadedFile::getInstance($model, 'file');
+            if ($model->validate()) {
+                $path = Yii::$app->params['pathUploads'] . '';
+                //$model->file->saveAs($path . $model->file);
+                $model->file->saveAs($path .time().'.'. $model->file->getExtension());
+                $model->path= $path .time().'.'. $model->file->getExtension();
+                $StepcontentRecord->content=$model->path;
+                $StepcontentRecord->save();
+
+            }
+        }
+
+        return $this->render('addphoto', ['model' => $model]);
     }
 }

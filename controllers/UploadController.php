@@ -50,25 +50,7 @@ class UploadController extends Controller {
         return $this->render('index', ['model' => $model]);
     }
     
-//выгрузка файла
-    
-    public function actionUploadfile() {
-        
-         if (Yii::$app->request->isAjax)
-         {
-             $model = new UploadForm();
-             $model->file = UploadedFile::getInstance($model, 'file');
-             $model->path= $path .time().'.'. $model->file->getExtension();
-               $rec=model. path2class($path);
-            //$test = 'Hi, Wal ';
-           
-            
 
-            Yii::$app->response->format = Response::FORMAT_JSON;
-            return['response'=>$rec];
-             
-         }
-    }
 
 
     public function actionJs()
